@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Footprint Reduction</title>
+  <style>
+    /* CSS Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #1c1c1c;
+      color: #f1f1f1;
+    }
+    header {
+      background: #27ae60;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    form {
+      display: inline-block;
+      text-align: left;
+      margin-top: 1rem;
+    }
+    input, textarea, button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      color: #1c1c1c;
+    }
+    button {
+      background: #27ae60;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2ecc71;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* Position above the tooltip */
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+    .social-buttons {
+      margin: 20px;
+    }
+    .social-buttons button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .social-buttons .facebook {
+      background: #3b5998;
+      color: #fff;
+    }
+    .social-buttons .twitter {
+      background: #1da1f2;
+      color: #fff;
+    }
+    .social-buttons .linkedin {
+      background: #0077b5;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Carbon Footprint Reduction in IT Operations</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#data">Data Insights</a>
+      <a href="#subscribe">Subscribe</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>This project focuses on analyzing and reducing the carbon footprint of IT operations using data analytics. Hover over <span class="tooltip">terms<span class="tooltiptext">Definitions and explanations will appear here.</span></span> for more details.</p>
+  </section>
+
+  <section id="data">
+    <h2>Data Insights</h2>
+    <p>Explore our findings on energy consumption in IT operations!</p>
+    <canvas id="dataChart"></canvas>
+  </section>
+
+  <section id="subscribe">
+    <h2>Newsletter Signup</h2>
+    <p>Stay updated with the latest trends and insights on sustainability!</p>
+    <form id="subscribeForm">
+      <label for="email">Enter your email:</label>
+      <input type="email" id="email" placeholder="example@mail.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p id="subscribeResponse" style="color: #2ecc71; display: none;">Thank you for subscribing!</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <label for="message">Message:</label>
+      <textarea id="message" rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="formResponse" style="color: #2ecc71; display: none;">Thank you for reaching out to us!</p>
+  </section>
+
+  <section class="social-buttons">
+    <h2>Share This Website</h2>
+    <button class="facebook" onclick="window.open('https://facebook.com', '_blank')">Share on Facebook</button>
+    <button class="twitter" onclick="window.open('https://twitter.com', '_blank')">Share on Twitter</button>
+    <button class="linkedin" onclick="window.open('https://linkedin.com', '_blank')">Share on LinkedIn</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Harsh. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Chart.js Logic for Data Insights Section
+    document.addEventListener("DOMContentLoaded", () => {
+      const ctx = document.getElementById("dataChart").getContext("2d");
+      const dataChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Servers", "Networks", "PCs", "Laptops"],
+          datasets: [{
+            label: "Energy Consumption (kWh)",
+            data: [500, 300, 200, 100],
+            backgroundColor: ["#3498db", "#1abc9c", "#9b59b6", "#e74c3c"],
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: "top"
+            }
+          }
+        }
+      });
+    });
+
+    // Newsletter Signup Logic
+    document.getElementById("subscribeForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("subscribeResponse").style.display = "block";
+    });
+
+    // Contact Form Logic
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("formResponse").style.display = "block";
+    });
+  </script>
+</body>
+</html>
